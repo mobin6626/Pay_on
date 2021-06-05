@@ -1,7 +1,11 @@
-from tkinter import *
 # import main
 import tkinter.messagebox
-import os
+from tkinter import *
+
+
+def user_screen():
+
+global user
 
 user = Tk()
 user.title("pay on(user)")
@@ -55,30 +59,30 @@ name_item = Entry(user, width=20, font=('b koodak', 14), bg=color_2, foreground=
 name_item.grid(row=0, column=0, columnspan=3)
 
 tip = Scale(user, orient='horizontal', width=20, bg=color_2, foreground=color_1,
-                  highlightbackground=color_2)
+            highlightbackground=color_2)
 tip.grid(row=1, column=0, columnspan=3, rowspan=1)
 
 waiter_var = StringVar()
 waiter = Entry(user, width=20, font=('b koodak', 14), bg=color_2, foreground=color_1,
-                  highlightbackground=color_2, textvariable=waiter_var)
+               highlightbackground=color_2, textvariable=waiter_var)
 waiter.grid(row=3, column=0, columnspan=3, rowspan=2)
 
 price_var = IntVar()
 item_price = Entry(user, width=20, font=('b koodak', 14), bg=color_2, foreground=color_1,
-                  highlightbackground=color_2, textvariable=price_var)
+                   highlightbackground=color_2, textvariable=price_var)
 item_price.grid(row=6, column=0, columnspan=3, rowspan=2)
 
 
 numbers_var = IntVar()
 numbers = Entry(user, width=20, font=('b koodak', 14), bg=color_2, foreground=color_1,
-                  highlightbackground=color_2, textvariable=numbers_var)
+                highlightbackground=color_2, textvariable=numbers_var)
 numbers.grid(row=9, column=2, rowspan=2)
 
 # ------------
 
 tip_var = IntVar()
 tip_all = Entry(user, width=20, font=('b koodak', 14), bg=color_2, foreground=color_1,
-                  highlightbackground=color_2, textvariable=tip_var)
+                highlightbackground=color_2, textvariable=tip_var)
 tip_all.grid(row=3, column=5, rowspan=2)
 
 price_all_var = IntVar()
@@ -91,11 +95,11 @@ price_all.grid(row=5, column=5, rowspan=3)
 
 # ======== List Box ========
 items = Listbox(user, font=('b koodak', 14), width=35, height=3, bg=color_2, foreground=color_1,
-                  highlightbackground=color_2)
+                highlightbackground=color_2)
 items.grid(row=0, column=4, columnspan=3, rowspan=2)
 
 item_list = Listbox(user, font=('b koodak', 14), width=36, height=10, bg=color_2, foreground=color_1,
-                  highlightbackground=color_2)
+                    highlightbackground=color_2)
 item_list.grid(row=13, column=14)
 
 scrolbar_list = Scrollbar(user, bg=color_2)
@@ -108,15 +112,15 @@ scrolbar_list.configure(command=item_list.yview)
 
 # ======== Button ========
 b_back = Button(user, text="برگشت", font=("b koodak", 12), width=13, height=2, bg=color_2, foreground=color_1,
-                  highlightbackground=color_2)
+                highlightbackground=color_2)
 b_back.place(x=0, y=423)
 
 choose = Button(user, text="انتخاب", font=("b koodak", 14), width=14, height=1, bg=color_2, foreground=color_1,
-                  highlightbackground=color_2)
+                highlightbackground=color_2)
 choose.grid(row=12, column=2, rowspan=1)
 
 delete_in_list = Button(user, text="حذف", font=("b koodak", 14), width=8, height=1, bg=color_2, foreground=color_1,
-                  highlightbackground=color_2)
+                        highlightbackground=color_2)
 delete_in_list.grid(row=0, column=9)
 
 purchase = Button(user, text="پرداخت", font=("b koodak", 14), width=14, height=2, bg=color_2, foreground=color_1,

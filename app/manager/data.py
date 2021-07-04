@@ -40,12 +40,10 @@ def search(name="", age="", price=""):
     conn.close()
     return rows
 
-def delete(name, age, price):
+def delete(id):
     conn = sqlite3.connect("waiters.db")
     cur = conn.cursor()
-    cur.execute(
-        "DELETE * FROM salary WHERE name = ? OR age = ? OR price = ?", (name, age, price)
-    )
+    cur.execute("DELETE FROM salary WHERE id=?", (id,))
     conn.commit()
     conn.close()
 
@@ -54,6 +52,15 @@ def update(id, name, age, price):
     cur = conn.cursor()
     cur.execute(
         "UPDATE salary SET name = ?, age = ?, price = ? WHERE id = ?", (name, age, price, id)
+    )
+    conn.commit()
+    conn.close()
+
+def update_pay_money(name, price):
+    conn = sqlite3.connect("waiters.db")
+    cur = conn.cursor()
+    cur.execute(
+        "UPDATE salary SET price = ?  WHERE name = ?", (price, name)
     )
     conn.commit()
     conn.close()

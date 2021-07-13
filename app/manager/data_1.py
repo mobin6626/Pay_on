@@ -59,5 +59,3 @@ def update(id, name, price):
 
 connect()
 
-
-

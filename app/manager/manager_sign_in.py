@@ -100,13 +100,14 @@ def manager_screen():
 
     # --------
 
-
+    item_text = StringVar()
     item_name = Entry(manager, font=("MRT_AridiNaskh Black", 12), bg=color_2, foreground=color_1,
-                      width=24,highlightbackground=color_2)
+                      width=24,highlightbackground=color_2, textvariable=item_text)
     item_name.grid(row = 0, column=4)
 
+    item_price_text = IntVar()
     item_price = Entry(manager, font=("MRT_AridiNaskh Black", 12), bg=color_2, foreground=color_1,
-                      width=24,highlightbackground=color_2)
+                      width=24,highlightbackground=color_2, textvariable=item_price_text)
     item_price.grid(row = 1, column=4)
 
     # ============ List Box ============
@@ -125,7 +126,6 @@ def manager_screen():
         global selected_waiter
         index = waiter_list.curselection()[0]
         selected_waiter = waiter_list.get(index)
-        print(selected_waiter)
         waiter_name.delete(0, END)
         waiter_name.insert(END, selected_waiter[1])
         waiter_age.delete(0, END)
@@ -265,7 +265,7 @@ def manager_screen():
 
     def search_to_item_list():
         clear_item_list()
-        items = app.manager.data_1.search(item_name.get(), item_price.get())
+        items = app.manager.data_1.search(item_text.get(), item_price_text.get())
         fill_item_list(items)
         item_list_view()
 
